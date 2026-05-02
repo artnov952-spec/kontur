@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контур Логистика — Коммерческое предложение</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #161616;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Header */
+        .header {
+            padding: 20px 0;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: #00BFA5;
+        }
+
+        .header-tag {
+            font-size: 13px;
+            color: #888;
+            background: #222;
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: #00BFA5;
+            color: #161616;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -1.5px;
+            max-width: 700px;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: #888;
+            max-width: 560px;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            margin-top: 48px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: #00BFA5;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        /* Features Grid */
+        .features {
+            padding: 60px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .feature-card {
+            padding: 36px 28px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            min-height: 260px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .feature-card.teal {
+            background: #00BFA5;
+            color: #161616;
+        }
+
+        .feature-card.orange {
+            background: #FF6B35;
+            color: #fff;
+        }
+
+        .feature-card.blue {
+            background: #2979FF;
+            color: #fff;
+        }
+
+        .feature-card.dark {
+            background: #222;
+            color: #fff;
+            border: 1px solid #333;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 16px;
+            opacity: 0.9;
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .feature-card p {
+            font-size: 15px;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .feature-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .feature-tag {
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-card.teal .feature-tag {
+            background: rgba(22, 22, 22, 0.15);
+            color: #161616;
+        }
+
+        /* How it Works */
+        .how-it-works {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            margin-bottom: 48px;
+        }
+
+        .section-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #00BFA5;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 40px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .step {
+            background: #1e1e1e;
+            border: 1px solid #2a2a2a;
+            border-radius: 16px;
+            padding: 32px 24px;
+            position: relative;
+            transition: border-color 0.3s ease;
+        }
+
+        .step:hover {
+            border-color: #00BFA5;
+        }
+
+        .step-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: #00BFA5;
+            opacity: 0.3;
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+
+        .step h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            font-size: 14px;
+            color: #888;
+            line-height: 1.5;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 80px 0;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .pricing-card {
+            background: #1e1e1e;
+            border: 1px solid #2a2a2a;
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            border-color: #00BFA5;
+            transform: translateY(-4px);
+        }
+
+        .pricing-card.featured {
+            border-color: #00BFA5;
+            background: linear-gradient(135deg, #1e1e1e 0%, #0a2a24 100%);
+        }
+
+        .pricing-card.featured::before {
+            content: 'Популярный';
+            position: absolute;
+            top: -1px;
+            right: 20px;
+            background: #00BFA5;
+            color: #161616;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .pricing-docs {
+            font-size: 32px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .pricing-unit {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .pricing-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: #00BFA5;
+            margin-bottom: 4px;
+        }
+
+        .pricing-period {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .pricing-per-doc {
+            font-size: 14px;
+            color: #888;
+            padding-top: 16px;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        .pricing-note {
+            text-align: center;
+            margin-top: 32px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+        }
+
+        .cta-box {
+            background: #00BFA5;
+            border-radius: 24px;
+            padding: 64px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            border: 2px solid rgba(22, 22, 22, 0.1);
+            border-radius: 50%;
+        }
+
+        .cta-content h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #161616;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .cta-content p {
+            font-size: 18px;
+            color: rgba(22, 22, 22, 0.7);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #161616;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 16px 36px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            z-index: 1;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .cta-button:hover {
+            background: #000;
+            transform: scale(1.05);
+        }
+
+        /* Advantages */
+        .advantages {
+            padding: 60px 0;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .advantage {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .advantage-icon {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            background: #222;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        .advantage h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .advantage p {
+            font-size: 14px;
+            color: #888;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 40px 0;
+            border-top: 1px solid #2a2a2a;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .footer-logo {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .footer-copy {
+            font-size: 13px;
+            color: #555;
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-contact {
+            text-align: right;
+        }
+
+        .footer-contact-label {
+            font-size: 12px;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-contact-value {
+            font-size: 14px;
+            color: #888;
+            margin-top: 2px;
+        }
+
+        /* Responsive */
+        @media (max-width: 960px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .advantages-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .hero h1 {
+                font-size: 40px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 20px;
+            }
+            .features-grid,
+            .steps,
+            .pricing-grid,
+            .advantages-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .hero-stats {
+                flex-direction: column;
+                gap: 24px;
+            }
+            .cta-box {
+                flex-direction: column;
+                text-align: center;
+                gap: 24px;
+                padding: 40px 24px;
+            }
+            .footer-content {
+                flex-direction: column;
+                gap: 24px;
+                text-align: center;
+            }
+            .footer-right {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .footer-contact {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Контур <span>Логистика</span></a>
+                <span class="header-tag">Коммерческое предложение</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">Электронные перевозочные документы</div>
+            <h1>Цифровой документооборот для вашей логистики</h1>
+            <p class="hero-subtitle">Оформляйте и обменивайтесь электронными транспортными накладными (ЭТрН) и путевыми листами (ЭПЛ) в едином сервисе. Законно, быстро, без бумаги.</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">50 000+</span>
+                    <span class="stat-label">компаний на платформе</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">7,6 ₽</span>
+                    <span class="stat-label">от за документ</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">поддержка пользователей</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card teal">
+                    <div>
+                        <svg class="feature-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="8" y="12" width="32" height="24" rx="4" stroke="currentColor" stroke-width="2.5"/>
+                            <path d="M16 20L22 26L32 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <h3>Электронная транспортная накладная</h3>
+                        <p>Создавайте, подписывайте и обменивайтесь ЭТрН со всеми участниками перевозки в режиме реального времени.</p>
+                    </div>
+                    <div class="feature-tags">
+                        <span class="feature-tag">9 титулов</span>
+                        <span class="feature-tag">КЭП / ПЭП</span>
+                        <span class="feature-tag">ГИС ЭПД</span>
+                    </div>
+                </div>
+                <div class="feature-card orange">
+                    <div>
+                        <svg class="feature-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 8V24L32 28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2.5"/>
+                        </svg>
+                        <h3>Электронный путевой лист</h3>
+                        <p>Автоматизируйте оформление путевых листов с интеграцией в ГИС ЭПД и контролем сроков.</p>
+                    </div>
+                    <div class="feature-tags">
+                        <span class="feature-tag">ОСАГО</span>
+                        <span class="feature-tag">Тахограф</span>
+                        <span class="feature-tag">Медосмотр</span>
+                    </div>
+                </div>
+                <div class="feature-card blue">
+                    <div>
+                        <svg class="feature-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="10" y="28" width="10" height="12" rx="2" stroke="currentColor" stroke-width="2.5"/>
+                            <rect x="28" y="18" width="10" height="22" rx="2" stroke="currentColor" stroke-width="2.5"/>
+                            <path d="M14 22V18C14 12 18 8 24 8C28 8 30 10 32 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                        <h3>Мобильное приложение для водителя</h3>
+                        <p>Водители подтверждают прием и выдачу груза простой электронной подписью прямо со смартфона.</p>
+                    </div>
+                    <div class="feature-tags">
+                        <span class="feature-tag">iOS / Android</span>
+                        <span class="feature-tag">Офлайн-режим</span>
+                        <span class="feature-tag">QR-код ГИБДД</span>
+                    </div>
+                </div>
+                <div class="feature-card dark">
+                    <div>
+                        <svg class="feature-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: #00BFA5;">
+                            <path d="M24 8L8 18V40H20V30H28V40H40V18L24 8Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+                        </svg>
+                        <h3>Интеграция с 1С и ERP</h3>
+                        <p>Готовые модули для 1С, SAP, Oracle и Microsoft Dynamics. API для кастомных интеграций.</p>
+                    </div>
+                    <div class="feature-tags">
+                        <span class="feature-tag">1С</span>
+                        <span class="feature-tag">SAP</span>
+                        <span class="feature-tag">API</span>
+                    </div>
+                </div>
+                <div class="feature-card dark">
+                    <div>
+                        <svg class="feature-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: #FF6B35;">
+                            <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2.5"/>
+                            <path d="M18 24L22 28L30 20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <h3>Автоматическое подписание</h3>
+                        <p>Настройте роботов для автоподготовки и отправки документов без участия оператора.</p>
+                    </div>
+                    <div class="feature-tags">
+                        <span class="feature-tag">Сценарии</span>
+                        <span class="feature-tag">Роботы</span>
+                    </div>
+                </div>
+                <div class="feature-card dark">
+                    <div>
+                        <svg class="feature-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: #2979FF;">
+                            <rect x="8" y="14" width="32" height="20" rx="4" stroke="currentColor" stroke-width="2.5"/>
+                            <path d="M16 22H32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M20 28H28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                        <h3>Уведомления и контроль</h3>
+                        <p>Отслеживайте статусы документов в реальном времени. Получайте alerts в Telegram и на email.</p>
+                    </div>
+                    <div class="feature-tags">
+                        <span class="feature-tag">Telegram</span>
+                        <span class="feature-tag">Email</span>
+                        <span class="feature-tag">Dashboard</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Как начать</div>
+                <h2 class="section-title">Подключение за 4 шага</h2>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <h4>Регистрация</h4>
+                    <p>Создайте учетную запись организации в сервисе. Первичный вход по сертификату руководителя.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <h4>Получение КЭП</h4>
+                    <p>Оформите квалифицированную электронную подпись для уполномоченных лиц вашей компании.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <h4>Подключение контрагентов</h4>
+                    <p>Пригласите перевозчиков, грузоотправителей и грузополучателей к обмену документами.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">04</div>
+                    <h4>Начало работы</h4>
+                    <p>Создавайте первые ЭТрН и ЭПЛ. Водители устанавливают мобильное приложение.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Тарифы</div>
+                <h2 class="section-title">Пакеты документов</h2>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-docs">250</div>
+                    <div class="pricing-unit">документов</div>
+                    <div class="pricing-price">1 900 ₽</div>
+                    <div class="pricing-period">в год</div>
+                    <div class="pricing-per-doc">7,6 ₽ за документ</div>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-docs">500</div>
+                    <div class="pricing-unit">документов</div>
+                    <div class="pricing-price">3 500 ₽</div>
+                    <div class="pricing-period">в год</div>
+                    <div class="pricing-per-doc">7 ₽ за документ</div>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-docs">1 000</div>
+                    <div class="pricing-unit">документов</div>
+                    <div class="pricing-price">6 500 ₽</div>
+                    <div class="pricing-period">в год</div>
+                    <div class="pricing-per-doc">6,5 ₽ за документ</div>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-docs">5 000</div>
+                    <div class="pricing-unit">документов</div>
+                    <div class="pricing-price">30 000 ₽</div>
+                    <div class="pricing-period">в год</div>
+                    <div class="pricing-per-doc">6 ₽ за документ</div>
+                </div>
+            </div>
+            <p class="pricing-note">Тарифицируются титулы Т1 и Т2 в ЭТрН, а также титул Т4 в ЭПЛ. Все остальные титулы — без ограничений.<br>Для объемов от 6 000 документов — индивидуальные условия.</p>
+        </div>
+    </section>
+
+    <!-- Advantages -->
+    <section class="advantages">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Преимущества</div>
+                <h2 class="section-title">Почему выбирают Контур Логистику</h2>
+            </div>
+            <div class="advantages-grid">
+                <div class="advantage">
+                    <div class="advantage-icon">⚡</div>
+                    <div>
+                        <h4>Скорость обработки</h4>
+                        <p>Электронный документооборот в 5 раз быстрее бумажного. Никаких задержек на почте или курьере.</p>
+                    </div>
+                </div>
+                <div class="advantage">
+                    <div class="advantage-icon">🛡️</div>
+                    <div>
+                        <h4>Законность и защита</h4>
+                        <p>Документы имеют полную юридическую силу. Хранение на защищенных серверах с резервным копированием.</p>
+                    </div>
+                </div>
+                <div class="advantage">
+                    <div class="advantage-icon">📉</div>
+                    <div>
+                        <h4>Снижение издержек</h4>
+                        <p>Экономьте на печати, доставке и хранении бумажных документов. Оптимизируйте логистические цепочки.</p>
+                    </div>
+                </div>
+                <div class="advantage">
+                    <div class="advantage-icon">📱</div>
+                    <div>
+                        <h4>Мобильность</h4>
+                        <p>Работайте с любого устройства. Мобильное приложение для водителей работает даже без интернета.</p>
+                    </div>
+                </div>
+                <div class="advantage">
+                    <div class="advantage-icon">🔗</div>
+                    <div>
+                        <h4>Интеграция с ГИС ЭПД</h4>
+                        <p>Прямая интеграция с государственной информационной системой. Автоматическая отправка данных.</p>
+                    </div>
+                </div>
+                <div class="advantage">
+                    <div class="advantage-icon">🤝</div>
+                    <div>
+                        <h4>Сопровождение 24/7</h4>
+                        <p>Техническая поддержка и персональный менеджер помогут на всех этапах внедрения и работы.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-box">
+                <div class="cta-content">
+                    <h2>Готовы перейти на электронные документы?</h2>
+                    <p>Оставьте заявку — наш менеджер свяжется с вами в течение рабочего дня</p>
+                </div>
+                <a href="#" class="cta-button">Подключить Контур Логистику</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">Контур Логистика</div>
+                    <div class="footer-copy">© 2025 АО «ПФ «СКБ Контур». Все права защищены.</div>
+                </div>
+                <div class="footer-right">
+                    <div class="footer-contact">
+                        <div class="footer-contact-label">Телефон</div>
+                        <div class="footer-contact-value">8-800-100-00-00</div>
+                    </div>
+                    <div class="footer-contact">
+                        <div class="footer-contact-label">Email</div>
+                        <div class="footer-contact-value">logistika@kontur.ru</div>
+                    </div>
+                    <div class="footer-contact">
+                        <div class="footer-contact-label">Сайт</div>
+                        <div class="footer-contact-value">kontur.ru/logistika</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
